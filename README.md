@@ -1,5 +1,7 @@
 # Nimiq-Wallet-Manager
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Albermonte/nimiq-wallet-manager)
+
 **Not ready for production, use only on testnet!**
 
 ## Requirements
