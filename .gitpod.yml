@@ -1,2 +1,7 @@
-mkdir -p /workspace/data && mongod --dbpath /workspace/data
-redis-server
+image:
+  file: .gitpod.dockerfile
+tasks:
+- init: >
+    npm install
+    RUN mkdir -p /workspace/data && mongod --dbpath /workspace/data
+    redis-server
