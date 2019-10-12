@@ -5,3 +5,7 @@ tasks:
     npm install &&
     mkdir -p /workspace/data && mongod --dbpath /workspace/data &&
     redis-server
+- command: wget https://aschen.ovh/nimiq/test/test-full-consensus.tar && 
+           tar -xvf test-full-consensus.tar &&
+           npm wun watch
+- command: gp await-port 8080 && gp preview $(gp url 8080)
