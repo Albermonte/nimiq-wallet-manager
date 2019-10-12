@@ -13,11 +13,10 @@ tasks:
     npm install &&
     npm install -g webpack-cli nodemon &&
     echo "############## All dependencies installed ##############" &&
-    [ -d ./test-full-consensus ] && echo "Consensus already exist" || wget https://aschen.ovh/nimiq/test/test-full-consensus.tar &&
-    echo ############## Consensus folder ready ##############" &&
-    [ -d ./test-full-consensus ] || tar -xvf test-full-consensus.tar &&
-    echo "############## Starting app ##############" &&
-    npm run watch
+    [ ! -d ./test-full-consensus ] && wget https://aschen.ovh/nimiq/test/test-full-consensus.tar
+  command: [ ! -d ./test-full-consensus ] && tar -xvf test-full-consensus.tar
+  command: echo "############## Starting app ##############" && npm run watch
 - command: mkdir -p /workspace/data && mongod --dbpath /workspace/data
 - command: redis-server
 - command: gp await-port 8080 && gp preview $(gp url 8080)
+- command: [ -d ./test-full-consensus ] && npm run watch || exit
